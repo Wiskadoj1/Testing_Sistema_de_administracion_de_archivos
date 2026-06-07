@@ -1,4 +1,4 @@
-# Sistema de Administración de Archivos — SIGAD
+# Sistema Integral de Gestión Académica Documental — SIGAD
 
 Proyecto desarrollado por el equipo **R.O.M.** como parte del desarrollo y validación de una aplicación web para la gestión documental de una institución académica.
 
@@ -24,6 +24,7 @@ El sistema permite:
 - Buscar archivos registrados.
 - Consultar ayuda dentro de la aplicación.
 - Cambiar entre tema claro y tema oscuro.
+- Registrar nuevos usuarios.
 - Cerrar sesión.
 - Administrar documentos de acuerdo con los permisos del usuario.
 
@@ -80,6 +81,14 @@ URL utilizada por los scripts de prueba:
 
 ```text
 https://wiskadoj1.github.io/Sistema-de-administraci-n-de-archivos/index.html
+```
+
+## Ruta local de trabajo
+
+Ruta local usada durante el desarrollo de pruebas:
+
+```text
+C:\Users\BRAULIOGERARDOANTONI\Documents\testing
 ```
 
 ## Instalación del entorno de pruebas
@@ -161,7 +170,15 @@ Este script ingresa credenciales incorrectas, valida el mensaje de error y gener
 pytest ejemplo4_pytest.py
 ```
 
-Este script organiza los casos de prueba mediante una estructura basada en Pytest.
+Este script organiza los casos de prueba anteriores mediante una estructura basada en Pytest.
+
+### Script adicional con Pytest: registro de usuario
+
+```bash
+pytest funcion_extra.py
+```
+
+Este script incluye una prueba adicional sobre una funcionalidad distinta a las vistas en clase: el **registro de usuario**. La prueba abre la pantalla de registro, llena los campos principales, selecciona el flujo de registro y valida que el sistema muestre el mensaje **"Usuario registrado correctamente"**. Como evidencia, guarda una captura en la carpeta `evidencias/`.
 
 ## Casos de prueba automatizados
 
@@ -172,6 +189,7 @@ Este script organiza los casos de prueba mediante una estructura basada en Pytes
 | `ejemplo_2_login_correcto.py` | Autenticación con credenciales válidas |
 | `ejemplo3_login_incorrecto.py` | Autenticación con credenciales inválidas y generación de evidencia |
 | `ejemplo4_pytest.py` | Organización de pruebas mediante Pytest |
+| `funcion_extra.py` | Prueba adicional con Pytest para validar el registro de usuario |
 
 ## Credenciales de prueba
 
@@ -189,6 +207,16 @@ Usuario: correoPrueba@rom.com
 Contraseña: 123
 ```
 
+### Datos usados para la prueba de registro
+
+```text
+Nombre: General Valencia
+Correo: general.valencia@rom.com
+Contraseña: Generalrom1
+Área: Computacion
+Rol: Trabajador
+```
+
 ## Evidencias
 
 Las evidencias generadas por las pruebas automatizadas se almacenan en la carpeta:
@@ -201,7 +229,9 @@ Ejemplos de evidencias generadas:
 
 ```text
 evidencias/login_incorrecto.png
+evidencias/test_correcto.png
 evidencias/test_fallido.png
+evidencias/test_registrar.png
 ```
 
 Las capturas se generan cuando una prueba requiere comprobar un resultado visual o cuando ocurre un fallo durante la validación.
@@ -218,10 +248,13 @@ Testing_Sistema_de_administracion_de_archivos/
 ├── ejemplo_2_login_correcto.py
 ├── ejemplo3_login_incorrecto.py
 ├── ejemplo4_pytest.py
+├── funcion_extra.py
 │
 └── evidencias/
     ├── login_incorrecto.png
-    └── test_fallido.png
+    ├── test_correcto.png
+    ├── test_fallido.png
+    └── test_registrar.png
 ```
 
 ## Archivos que no deben subirse al repositorio
@@ -271,29 +304,9 @@ El script `ejemplo3_login_incorrecto.py` valida que el sistema muestre un mensaj
 
 El script `ejemplo4_pytest.py` integra pruebas de carga, login correcto y login incorrecto utilizando una estructura basada en Pytest.
 
-## Recomendación para completar el requisito adicional
+### 6. Prueba adicional: registro de usuario
 
-Para cubrir completamente el requisito de una funcionalidad distinta a las vistas en clase, se recomienda agregar un nuevo archivo de prueba, por ejemplo:
-
-```text
-test_modo_oscuro.py
-```
-
-o
-
-```text
-test_ayuda.py
-```
-
-Este script puede validar una funcionalidad adicional del sistema, como:
-
-- Cambio a modo oscuro.
-- Apertura de la sección de ayuda.
-- Consulta de perfil.
-- Cierre de sesión.
-- Búsqueda de archivos.
-
-El script adicional también debe guardar evidencia en la carpeta `evidencias/`.
+El script `funcion_extra.py` valida una funcionalidad adicional del sistema: el registro de usuario. Esta prueba ingresa a la pantalla de registro, llena datos de prueba, envía el formulario y guarda evidencia del resultado.
 
 ## Notas adicionales
 
